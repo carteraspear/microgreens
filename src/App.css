@@ -1,42 +1,106 @@
+/* General styles */
+body {
+  background-color: #00222E;
+  color: #E7FFF0;
+  font-family: 'Heptaslab', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #00602D;
+  padding: 0.5rem 1rem;
+  height: 4rem;
+}
+
+.top-bar .profile-picture {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 1.25rem;
+  background-color: #E7FFF0; /* Placeholder for profile picture */
+}
+
+.top-bar .search-field {
+  flex: 1;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  background-color: #E7FFF0;
+  border-radius: 1.25rem;
+  padding: 0.5rem;
+  color: #00222E;
+}
+
+.top-bar .search-field input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;
+  color: #00222E;
+  font-size: 1rem;
+}
+
+.top-bar .search-field .icon {
+  margin-right: 0.5rem;
+}
+
+.top-bar .hamburger-menu {
+  width: 2rem;
+  height: 2rem;
+  background-color: #E7FFF0; /* Placeholder for hamburger icon */
+  border-radius: 0.25rem;
+}
+
+/* Bottom Bar */
+.bottom-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00602D;
+  height: 4rem;
+}
+
+.bottom-bar .tab {
+  flex: 1;
   text-align: center;
+  color: #E7FFF0;
+  padding: 0.5rem;
+  cursor: pointer;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.bottom-bar .tab:hover {
+  background-color: #004D23;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Light Green Circle with Arrow */
+.green-circle {
+  position: absolute;
+  bottom: 4.5rem; /* Just above the bottom bar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2rem;
+  height: 2rem;
+  background-color: lightgreen;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00222E;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Tab Content Area */
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
 }
