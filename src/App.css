@@ -75,6 +75,11 @@ body {
   align-items: center;
   background-color: #00602D;
   height: 4rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Makes sure the bottom bar is above other content */
 }
 
 .bottom-bar .tab {

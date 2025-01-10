@@ -1,5 +1,8 @@
 import { useState } from "react";
 
+// You can import Font Awesome Icons (use a CDN link or install via npm)
+import { FaHome, FaPen, FaStar, FaEnvelope } from "react-icons/fa"; // Example icons
+
 function App() {
   const [activeTab, setActiveTab] = useState("Neighbors");
 
@@ -52,24 +55,28 @@ function App() {
           className={`tab ${activeTab === "Neighbors" ? "active" : ""}`}
           onClick={() => setActiveTab("Neighbors")}
         >
+          <FaHome size={24} /> {/* Icon for Neighbors */}
           Neighbors
         </div>
         <div
           className={`tab ${activeTab === "Posts" ? "active" : ""}`}
           onClick={() => setActiveTab("Posts")}
         >
+          <FaPen size={24} /> {/* Icon for Posts */}
           Posts
         </div>
         <div
           className={`tab ${activeTab === "Favorites" ? "active" : ""}`}
           onClick={() => setActiveTab("Favorites")}
         >
+          <FaStar size={24} /> {/* Icon for Favorites */}
           Favorites
         </div>
         <div
           className={`tab ${activeTab === "Messages" ? "active" : ""}`}
           onClick={() => setActiveTab("Messages")}
         >
+          <FaEnvelope size={24} /> {/* Icon for Messages */}
           Messages
         </div>
       </div>
