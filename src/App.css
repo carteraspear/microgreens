@@ -83,11 +83,16 @@ body {
 }
 
 .bottom-bar .tab {
-  flex: 1;
-  text-align: center;
+  display: flex;
+  flex-direction: column; /* Aligns icon above text */
+  align-items: center;
   color: #E7FFF0;
-  padding: 0.5rem;
   cursor: pointer;
+  padding: 5px 10px;
+}
+
+.bottom-bar .tab .icon {
+  margin-bottom: 5px; /* Adds space between icon and text */
 }
 
 .bottom-bar .tab:hover {
@@ -116,4 +121,55 @@ body {
   padding: 1rem;
   overflow-y: auto;
   padding-bottom: 4rem; /* Prevents content from being hidden under the bottom bar */
+}
+
+
+.neighbors-page {
+  padding: 20px;
+}
+
+.neighbors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px;
+}
+
+.neighbor-card {
+  background-color: #00700D; /* Rounded card background */
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.profile-image {
+  width: 100%;
+  height: 0;
+  padding-top: 100%; /* Aspect ratio 1:1 for profile image */
+  background-color: #E7FFF0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.neighbor-info {
+  padding-top: 10px;
+}
+
+.username {
+  font-weight: bold;
+  color: #E7FFF0;
+}
+
+.bio {
+  color: #E7FFF0;
+  font-size: 14px;
 }

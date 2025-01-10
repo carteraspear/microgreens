@@ -67,6 +67,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column; /* Aligns icon above text */
   background-color: #00602D; /* Bottom bar color */
   padding: 10px;
   position: fixed;
