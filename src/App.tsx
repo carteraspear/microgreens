@@ -1,5 +1,6 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { FaHome } from "react-icons/fa";
 // You can import Font Awesome Icons (use a CDN link or install via npm)
 import { FaHome, FaPen, FaStar, FaEnvelope } from "react-icons/fa"; // Example icons
 
@@ -83,5 +84,63 @@ function App() {
     </div>
   );
 }
+function NeighborsPage() {
+  const [neighbors, setNeighbors] = useState<any[]>([]); // Array to store neighbor profiles
+  const [hasMore, setHasMore] = useState(true); // To check if we need more data
 
+  useEffect(() => {
+    // Load initial neighbors when the component mounts
+    loadNeighbors();
+  }, []);
+
+  const loadNeighbors = () => {
+    // Fetch next set of neighbors from your API or database
+    const newNeighbors = Array.from({ length: 9 }, (_, index) => ({
+      id: index,
+      username: `User ${index + 1}`,
+      bio: `This is user ${index + 1}'s bio...`,
+      profileImage: "https://placekitten.com/200/200", // Placeholder profile image
+    }));
+    setNeighbors((prev) => [...prev, ...newNeighbors]);
+
+    // Simulate data being available
+    if (newNeighbors.length < 9) {
+      setHasMore(false);
+    }
+  };
+
+  return (
+    <div className="neighbors-page">
+      <h2>Neighbors</h2>
+      <p>Connect with people in your neighborhood!</p>
+      <InfiniteScroll
+        dataLength={neighbors.length} // Length of loaded data
+        next={loadNeighbors} // Function to load more data
+        hasMore={hasMore} // Flag to indicate if there's more data
+        loader={<div>Loading...</div>}
+        endMessage={<div>No more neighbors!</div>}
+      >
+        <div className="neighbors-grid">
+          {neighbors.map((neighbor) => (
+            <div
+              key={neighbor.id}
+              className="neighbor-card"
+              onClick={() => console.log(`Navigating to ${neighbor.username}'s profile`)}
+            >
+              <div className="profile-image">
+                <img src={neighbor.profileImage} alt={neighbor.username} />
+              </div>
+              <div className="neighbor-info">
+                <p className="username">@{neighbor.username}</p>
+                <p className="bio">{neighbor.bio.slice(0, 30)}...</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </InfiniteScroll>
+    </div>
+  );
+}
+
+export default NeighborsPage;
 export default App;
