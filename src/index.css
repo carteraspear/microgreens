@@ -23,6 +23,8 @@ body {
   padding: 0;
   background-color: #00222E; /* Ensure body background color is maintained */
   min-height: 100vh; /* Make sure the body takes the full height of the viewport */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Top Bar */
@@ -97,6 +99,9 @@ body {
   overflow-y: auto;
   padding-bottom: 4rem; /* Prevents content from being hidden behind the bottom bar */
   background-color: #00222E; /* Ensure background color is maintained in content */
+  position: relative; /* Allows for scrolling */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Light Green Circle with Arrow */
@@ -114,7 +119,6 @@ body {
   justify-content: center;
   color: #00222E;
 }
-
 
 .neighbors-page {
   padding: 20px;
