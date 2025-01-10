@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { FaHome } from "react-icons/fa";
 // You can import Font Awesome Icons (use a CDN link or install via npm)
 import { FaHome, FaPen, FaStar, FaEnvelope } from "react-icons/fa"; // Example icons
 
