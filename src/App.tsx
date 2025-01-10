@@ -142,4 +142,4 @@ function NeighborsPage() {
 }
 
 export default NeighborsPage;
-export default App;
+
