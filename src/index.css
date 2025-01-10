@@ -6,6 +6,18 @@
   background-color: #00222E; /* Background color */
   color: #E7FFF0; /* Default text color */
 }
+@font-face {
+  font-family: 'Hepta Slab';
+  src: url('./assets/Hepta_Slab/heptaslab.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font globally */
+body {
+  font-family: 'Hepta Slab', sans-serif;
+}
+
 
 /* Top Bar */
 .top-bar {
