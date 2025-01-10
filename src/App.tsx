@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { FaHome, FaPen, FaStar, FaEnvelope } from "react-icons/fa"; // Example icons
+import { FaHome, FaPen, FaStar, FaEnvelope, FaComment, FaShare } from "react-icons/fa"; // Import missing icons
 
 function App() {
   const [activeTab, setActiveTab] = useState("Neighbors");
@@ -20,12 +20,7 @@ function App() {
       {/* Main Content */}
       <main className="content">
         {activeTab === "Neighbors" && <NeighborsPage />}
-        {activeTab === "Posts" && (
-          <div className="posts-page">
-            <h2>Posts</h2>
-            <p>See what's happening nearby!</p>
-          </div>
-        )}
+        {activeTab === "Posts" && <PostsPage />}
         {activeTab === "Favorites" && (
           <div className="favorites-page">
             <h2>Favorites</h2>
@@ -106,7 +101,7 @@ function NeighborsPage() {
   return (
     <div className="neighbors-page">
       <h2>Neighbors</h2>
-       <InfiniteScroll
+      <InfiniteScroll
         dataLength={neighbors.length} // Length of loaded data
         next={loadNeighbors} // Function to load more data
         hasMore={hasMore} // Flag to indicate if there's more data
@@ -135,5 +130,105 @@ function NeighborsPage() {
   );
 }
 
-export { NeighborsPage };
+function PostsPage() {
+  const [posts, setPosts] = useState<any[]>([]); // Array to store posts
+  const [hasMore, setHasMore] = useState(true); // Flag to check if more data is available
+
+  useEffect(() => {
+    // Load initial posts when the component mounts
+    loadPosts();
+  }, []);
+
+  const loadPosts = () => {
+    // Simulate fetching posts
+    const newPosts = Array.from({ length: 9 }, (_, index) => ({
+      id: index,
+      username: `User ${index + 1}`,
+      location: `Location ${index + 1}`,
+      postText: `This is post number ${index + 1}. It's a short description of the post...`,
+      profileImage: "https://placekitten.com/200/200", // Placeholder profile image
+    }));
+    setPosts((prev) => [...prev, ...newPosts]);
+
+    // Simulate no more posts after 50 posts
+    if (newPosts.length < 9) {
+      setHasMore(false);
+    }
+  };
+
+  const handleFavorite = (postId: number) => {
+    console.log(`Favoriting post ${postId}`);
+    // Add post to favorites logic
+  };
+
+  const handleShare = (postId: number) => {
+    console.log(`Sharing post ${postId}`);
+    // Copy post link to clipboard logic
+  };
+
+  const handleMessage = (postId: number) => {
+    console.log(`Messaging post ${postId}`);
+    // Add post user to active user's messages
+  };
+
+  const handleUsernameClick = (username: string) => {
+    console.log(`Navigating to profile of ${username}`);
+    // Navigate to user's profile
+  };
+
+  return (
+    <div className="posts-page">
+      <h2>Posts</h2>
+      <p>See what's happening nearby!</p>
+
+      <InfiniteScroll
+        dataLength={posts.length} // Length of loaded data
+        next={loadPosts} // Function to load more data
+        hasMore={hasMore} // Flag to indicate if there's more data
+        loader={<div>Loading...</div>}
+        endMessage={<div>No more posts!</div>}
+      >
+        <div className="posts-grid">
+          {posts.map((post) => (
+            <div
+              key={post.id}
+              className="post-card"
+              onClick={() => console.log(`Navigating to post ${post.id}`)} // For detailed post page
+            >
+              <div className="post-header">
+                <div className="profile-image">
+                  <img src={post.profileImage} alt={post.username} />
+                </div>
+                <p
+                  className="username"
+                  onClick={() => handleUsernameClick(post.username)}
+                >
+                  @{post.username}
+                </p>
+                <p className="location">{post.location}</p>
+              </div>
+              <p className="post-text">{post.postText}</p>
+
+              <div className="post-actions">
+                <button onClick={() => handleFavorite(post.id)}>
+                  <FaStar size={18} /> Favorite
+                </button>
+                <button onClick={() => console.log("Comments clicked")}>
+                  <FaComment size={18} /> Comment
+                </button>
+                <button onClick={() => handleShare(post.id)}>
+                  <FaShare size={18} /> Share
+                </button>
+                <button onClick={() => handleMessage(post.id)}>
+                  <FaEnvelope size={18} /> Message
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </InfiniteScroll>
+    </div>
+  );
+}
+
 export default App;

@@ -170,3 +170,62 @@ body {
   color: #E7FFF0;
   font-size: 14px;
 }
+
+
+.posts-page {
+  padding: 20px;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.post-card {
+  background-color: #00700D; /* Rounded card background */
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  background-color: #E7FFF0;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post-header .username {
+  font-weight: bold;
+  color: #E7FFF0;
+  cursor: pointer;
+}
+
+.post-header .location {
+  color: #E7FFF0;
+  font-size: 14px;
+}
+
+.post-text {
+  color: #E7FFF0;
+  margin-top: 10px;
+}
+
+.post-actions button {
+  background: none;
+  color: #E7FFF0;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.post-actions button:hover {
+  color: #00602D; /* Add hover effect */
+}
