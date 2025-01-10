@@ -88,7 +88,7 @@ function NeighborsPage() {
       id: index,
       username: `User ${index + 1}`,
       bio: `This is user ${index + 1}'s bio...`,
-      profileImage: "https://placekitten.com/200/200", // Placeholder profile image
+      profileImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_VrwM-9q_4Q0pzVzKBESWvdpaid_35FFMgQ&s", // Placeholder profile image
     }));
     setNeighbors((prev) => [...prev, ...newNeighbors]);
 
