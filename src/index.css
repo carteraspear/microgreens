@@ -1,11 +1,13 @@
-/* App Layout */
-.app-container {
+/* General Layout */
+#root {
   display: flex;
   flex-direction: column;
   height: 100vh;
   background-color: #00222E; /* Background color */
   color: #E7FFF0; /* Default text color */
 }
+
+/* Font-face */
 @font-face {
   font-family: 'Hepta Slab';
   src: url('./assets/Hepta_Slab/heptaslab.ttf') format('truetype');
@@ -16,8 +18,9 @@
 /* Apply the font globally */
 body {
   font-family: 'Hepta Slab', sans-serif;
+  margin: 0;
+  padding: 0;
 }
-
 
 /* Top Bar */
 .top-bar {
@@ -66,6 +69,11 @@ body {
   align-items: center;
   background-color: #00602D; /* Bottom bar color */
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10; /* Ensures the bottom bar stays above content */
 }
 
 .tab {
@@ -75,5 +83,29 @@ body {
 }
 
 .tab.active {
-  
+  /* Add any styles for active tab here, e.g., background change */
+}
+
+/* Tab Content */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  padding-bottom: 4rem; /* Prevents content from being hidden behind the bottom bar */
+}
+
+/* Light Green Circle with Arrow */
+.green-circle {
+  position: absolute;
+  bottom: 4.5rem; /* Just above the bottom bar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2rem;
+  height: 2rem;
+  background-color: lightgreen;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00222E;
 }
