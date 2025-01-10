@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-// You can import Font Awesome Icons (use a CDN link or install via npm)
 import { FaHome, FaPen, FaStar, FaEnvelope } from "react-icons/fa"; // Example icons
 
 function App() {
@@ -20,12 +19,7 @@ function App() {
 
       {/* Main Content */}
       <main className="content">
-        {activeTab === "Neighbors" && (
-          <div className="neighbors-page">
-            <h2>Neighbors</h2>
-            <p>Connect with people in your neighborhood!</p>
-          </div>
-        )}
+        {activeTab === "Neighbors" && <NeighborsPage />}
         {activeTab === "Posts" && (
           <div className="posts-page">
             <h2>Posts</h2>
@@ -83,6 +77,7 @@ function App() {
     </div>
   );
 }
+
 function NeighborsPage() {
   const [neighbors, setNeighbors] = useState<any[]>([]); // Array to store neighbor profiles
   const [hasMore, setHasMore] = useState(true); // To check if we need more data
@@ -141,5 +136,5 @@ function NeighborsPage() {
   );
 }
 
-export default NeighborsPage;
-
+export { NeighborsPage };
+export default App;
