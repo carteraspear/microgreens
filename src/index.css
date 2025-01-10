@@ -1,78 +1,66 @@
-/* General Styles */
-body {
-  margin: 0;
-  background-color: #00222E; /* App background color */
+/* App Layout */
+.app-container {
   display: flex;
   flex-direction: column;
-  font-family: 'Heptaslab', sans-serif; /* Default font */
-  color: #E7FFF0; /* Default text color */
   height: 100vh;
-  width: 100vw;
+  background-color: #00222E; /* Background color */
+  color: #E7FFF0; /* Default text color */
 }
 
-main {
+/* Top Bar */
+.top-bar {
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00602D; /* Top bar color */
+  padding: 10px;
 }
 
-/* Button Styles */
-button {
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  background-color: #E7FFF0;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #00602D; /* Matches the top and bottom bars */
-  color: #E7FFF0;
-  cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
 }
 
-button:hover {
-  background-color: #004D23;
-}
-
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* List Styles */
-ul {
-  padding-inline-start: 0;
-  margin-block-start: 0;
-  margin-block-end: 0;
-  list-style-type: none;
+.search-field {
   display: flex;
-  flex-direction: column;
-  margin: 8px 0;
-  border: 1px solid #E7FFF0; /* Matches text color */
-  gap: 1px;
-  background-color: #00602D;
-  border-radius: 8px;
-  overflow: auto;
-}
-
-li {
+  align-items: center;
   background-color: #E7FFF0;
   color: #00222E;
-  padding: 8px;
+  padding: 5px;
+  border-radius: 16px;
+  flex-grow: 1;
+  margin: 0 10px;
 }
 
-li:hover {
-  background: #D6FFE3;
+.search-field input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  margin-left: 5px;
 }
 
-/* Anchor Styles */
-a {
-  font-weight: 800;
-  text-decoration: none;
+.hamburger-menu {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Bottom Bar */
+.bottom-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00602D; /* Bottom bar color */
+  padding: 10px;
+}
+
+.tab {
   color: #E7FFF0;
-  transition: color 0.3s;
+  cursor: pointer;
+  padding: 5px 10px;
 }
 
-a:hover {
-  color: #D6FFE3;
-}
+.tab.active {
+  
