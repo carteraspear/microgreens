@@ -1,26 +1,7 @@
-import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
-import { generateClient } from "aws-amplify/data";
-
-const client = generateClient<Schema>();
+import { useState } from "react";
 
 function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
   const [activeTab, setActiveTab] = useState("Neighbors");
-
-  useEffect(() => {
-    const subscription = client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-    return () => subscription.unsubscribe();
-  }, []);
-
-  function createTodo() {
-    const content = window.prompt("Enter a new todo:");
-    if (content) {
-      client.models.Todo.create({ content });
-    }
-  }
 
   return (
     <div className="app-container">
@@ -51,12 +32,7 @@ function App() {
         {activeTab === "Favorites" && (
           <div className="favorites-page">
             <h2>Favorites</h2>
-            <ul>
-              {todos.map((todo) => (
-                <li key={todo.id}>{todo.content}</li>
-              ))}
-            </ul>
-            <button onClick={createTodo}>+ New Favorite</button>
+            <p>Here are your saved posts and users.</p>
           </div>
         )}
         {activeTab === "Messages" && (
