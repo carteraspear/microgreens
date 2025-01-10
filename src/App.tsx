@@ -106,8 +106,7 @@ function NeighborsPage() {
   return (
     <div className="neighbors-page">
       <h2>Neighbors</h2>
-      <p>Connect with people in your neighborhood!</p>
-      <InfiniteScroll
+       <InfiniteScroll
         dataLength={neighbors.length} // Length of loaded data
         next={loadNeighbors} // Function to load more data
         hasMore={hasMore} // Flag to indicate if there's more data
