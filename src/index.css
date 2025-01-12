@@ -5,7 +5,6 @@
   height: 100vh;
   background-color: #00222E; /* Background color */
   color: #E7FFF0; /* Default text color */
-  overflow: hidden; /* Prevents scrollbars on the body */
 }
 
 /* Font-face */
@@ -70,7 +69,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: column; /* Aligns icon above text */
+  flex-direction: row; /* Change from column to row */
   background-color: #00602D; /* Bottom bar color */
   padding: 10px;
   position: fixed;
@@ -81,10 +80,15 @@ body {
 }
 
 .tab {
+  display: flex;
+  flex-direction: column; /* Icon above text */
+  justify-content: center;
+  align-items: center;
   color: #E7FFF0;
   cursor: pointer;
   padding: 5px 10px;
 }
+
 
 .tab.active {
   /* Add any styles for active tab here, e.g., background change */
