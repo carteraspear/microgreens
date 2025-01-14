@@ -1,4 +1,4 @@
-/* General styles */
+/* Font-face */
 @font-face {
   font-family: 'Hepta Slab';
   src: url('./assets/Hepta_Slab/heptaslab.ttf') format('truetype');
@@ -6,12 +6,14 @@
   font-style: normal;
 }
 
+/* Global Styles */
 body {
-  background-color: #00222E;
-  color: #E7FFF0;
   font-family: 'Hepta Slab', sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #00222E;
+  color: #E7FFF0;
+  min-height: 100vh;
 }
 
 #root {
@@ -30,42 +32,40 @@ body {
   height: 4rem;
 }
 
-.top-bar .profile-picture {
+.profile-picture {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 1.25rem;
-  background-color: #E7FFF0; /* Placeholder for profile picture */
+  background-color: #E7FFF0;
+  border-radius: 0.625rem; /* Slightly rounded rectangle */
+  overflow: hidden;
 }
 
-.top-bar .search-field {
-  flex: 1;
-  margin: 0 1rem;
+.search-field {
   display: flex;
   align-items: center;
+  flex: 1;
+  margin: 0 1rem;
   background-color: #E7FFF0;
+  color: #00222E;
   border-radius: 1.25rem;
   padding: 0.5rem;
-  color: #00222E;
 }
 
-.top-bar .search-field input {
-  border: none;
-  outline: none;
+.search-field input {
   flex: 1;
+  border: none;
   background: transparent;
+  outline: none;
   color: #00222E;
   font-size: 1rem;
 }
 
-.top-bar .search-field .icon {
-  margin-right: 0.5rem;
-}
-
-.top-bar .hamburger-menu {
+.hamburger-menu {
   width: 2rem;
   height: 2rem;
-  background-color: #E7FFF0; /* Placeholder for hamburger icon */
+  background-color: #E7FFF0;
   border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 /* Bottom Bar */
@@ -79,200 +79,153 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 10; /* Makes sure the bottom bar is above other content */
+  z-index: 10;
 }
 
-.bottom-bar .tab {
+.tab {
   display: flex;
-  flex-direction: column; /* Aligns icon above text */
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: #E7FFF0;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 0.5rem;
 }
 
-.bottom-bar .tab .icon {
-  margin-bottom: 5px; /* Adds space between icon and text */
-}
-
-.bottom-bar .tab:hover {
+.tab:hover {
   background-color: #004D23;
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  padding-bottom: 4rem;
 }
 
 /* Light Green Circle with Arrow */
 .green-circle {
   position: absolute;
-  bottom: 4.5rem; /* Just above the bottom bar */
+  bottom: 4.5rem;
   left: 50%;
   transform: translateX(-50%);
   width: 2rem;
   height: 2rem;
   background-color: lightgreen;
-  border-radius: 1rem;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #00222E;
 }
 
-/* Tab Content Area */
-.content {
-  flex: 1;
-  padding: 1rem;
-  overflow-y: auto;
-  padding-bottom: 4rem; /* Prevents content from being hidden under the bottom bar */
-}
-
-
+/* Neighbors Page */
 .neighbors-page {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .neighbors-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
 }
 
-/* General card styles */
 .neighbor-card {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border-radius: 12px; /* Ensures rounded rectangle */
+  background-color: #00700D;
+  border-radius: 0.625rem;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 12px;
-  margin: 8px 0;
-  overflow: hidden;
 }
 
-/* Profile image container */
+.neighbor-info {
+  flex-grow: 1;
+}
+
+.bio {
+  font-size: 0.875rem;
+}
+
 .profile-image {
-  width: 60px; /* Ensure consistent dimensions */
-  height: 60px;
-  border-radius: 12px; /* Rounded rectangle for the image */
-  overflow: hidden; /* Ensures image fits inside */
-  margin-right: 16px; /* Spacing between image and text */
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 0.625rem;
+  overflow: hidden;
+  margin-right: 1rem;
+  background-color: #E7FFF0;
 }
 
-/* Ensure the image fills the container */
 .profile-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Text information for the neighbor card */
-.neighbor-info {
-  flex-grow: 1;
-}
-
-.neighbor-info .username {
-  font-weight: bold;
-  color: #0022
-}
 .username {
   font-weight: bold;
   color: #E7FFF0;
 }
 
-.bio {
-  color: #E7FFF0;
-  font-size: 14px;
-}
-
+/* Posts Page */
 .posts-page {
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .posts-grid {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Increase spacing for cleaner layout */
+  gap: 1rem;
 }
 
 .post-card {
-  background-color: #00700D; /* Rounded card background */
-  border-radius: 8px; /* Slightly reduce roundness */
-  padding: 15px; /* Adjust padding for better proportion */
+  background-color: #00700D;
+  border-radius: 0.5rem;
+  padding: 1rem;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interaction */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .post-card:hover {
-  transform: translateY(-5px); /* Slight hover lift */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .post-header {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Space out header content */
-}
-
-.profile-image {
-  width: 35px;
-  height: 35px; /* Slightly smaller profile image */
-  background-color: #E7FFF0;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.username {
-  font-weight: bold;
-  color: #E7FFF0;
-  cursor: pointer;
-}
-
-.location {
-  color: #E7FFF0;
-  font-size: 12px; /* Smaller, subtle text for location */
+  justify-content: space-between;
 }
 
 .post-text {
-  color: #E7FFF0;
-  margin-top: 10px;
-  font-size: 14px; /* Refined text size */
-  line-height: 1.5; /* Enhance readability */
+  margin-top: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .post-actions {
   display: flex;
-  justify-content: space-between; /* Space out action icons */
-  margin-top: 10px;
+  justify-content: space-between;
+  margin-top: 0.625rem;
 }
 
 .post-actions button {
   background: none;
-  color: #E7FFF0;
   border: none;
+  color: #E7FFF0;
   cursor: pointer;
-  padding: 0; /* Remove padding for favicon style */
-  font-size: 18px; /* Larger icon size */
+  font-size: 1.125rem;
+  padding: 0;
   transition: color 0.2s ease;
 }
 
 .post-actions button:hover {
-  color: #00602D; /* Add hover effect */
+  color: #00602D;
 }
 
 .post-actions button i {
-  font-size: 20px; /* Ensure icons are prominent */
-}
-
-.post-actions button .favorite-icon {
-  content: url('/path-to-heart-icon.svg'); /* Replace with favicon path */
-}
-
-.post-actions button .comment-icon {
-  content: url('/path-to-comment-icon.svg'); /* Replace with favicon path */
-}
-
-.post-actions button .share-icon {
-  content: url('/path-to-share-icon.svg'); /* Replace with favicon path */
-}
-
-.post-actions button .message-icon {
-  content: url('/path-to-message-icon.svg'); /* Replace with favicon path */
+  font-size: 1.25rem;
 }
