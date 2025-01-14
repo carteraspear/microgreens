@@ -1,4 +1,4 @@
-import React from "react";
+
 import NeighborsPage from "./pages/NeighborsPage.tsx";
 import PostsPage from "./pages/PostsPage.tsx";
 

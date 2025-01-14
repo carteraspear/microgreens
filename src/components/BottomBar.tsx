@@ -1,4 +1,3 @@
-import React from "react";
 import { FaHome, FaPen, FaStar, FaEnvelope } from "react-icons/fa";
 
 const BottomBar = ({
