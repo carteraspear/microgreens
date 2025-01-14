@@ -1,4 +1,4 @@
-/* Font-face */
+/* General Styles */
 @font-face {
   font-family: 'Hepta Slab';
   src: url('./assets/Hepta_Slab/heptaslab.ttf') format('truetype');
@@ -6,14 +6,12 @@
   font-style: normal;
 }
 
-/* Global Styles */
 body {
+  background-color: #00222E;
+  color: #E7FFF0;
   font-family: 'Hepta Slab', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #00222E;
-  color: #E7FFF0;
-  min-height: 100vh;
 }
 
 #root {
@@ -32,40 +30,38 @@ body {
   height: 4rem;
 }
 
-.profile-picture {
+.top-bar .profile-picture {
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #E7FFF0;
-  border-radius: 0.625rem; /* Slightly rounded rectangle */
-  overflow: hidden;
+  border-radius: 1.25rem;
+  background-color: #E7FFF0; /* Placeholder for profile picture */
 }
 
-.search-field {
-  display: flex;
-  align-items: center;
+.top-bar .search-field {
   flex: 1;
   margin: 0 1rem;
+  display: flex;
+  align-items: center;
   background-color: #E7FFF0;
-  color: #00222E;
   border-radius: 1.25rem;
   padding: 0.5rem;
+  color: #00222E;
 }
 
-.search-field input {
-  flex: 1;
+.top-bar .search-field input {
   border: none;
-  background: transparent;
   outline: none;
+  flex: 1;
+  background: transparent;
   color: #00222E;
   font-size: 1rem;
 }
 
-.hamburger-menu {
+.top-bar .hamburger-menu {
   width: 2rem;
   height: 2rem;
-  background-color: #E7FFF0;
+  background-color: #E7FFF0; /* Placeholder for hamburger icon */
   border-radius: 0.25rem;
-  cursor: pointer;
 }
 
 /* Bottom Bar */
@@ -79,111 +75,115 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 10; /* Makes sure the bottom bar is above other content */
 }
 
-.tab {
+.bottom-bar .tab {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Aligns icon above text */
   align-items: center;
-  justify-content: center;
   color: #E7FFF0;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 5px 10px;
 }
 
-.tab:hover {
+.bottom-bar .tab .icon {
+  margin-bottom: 5px; /* Adds space between icon and text */
+}
+
+.bottom-bar .tab:hover {
   background-color: #004D23;
-}
-
-/* Content Area */
-.content {
-  flex: 1;
-  padding: 1rem;
-  overflow-y: auto;
-  padding-bottom: 4rem;
 }
 
 /* Light Green Circle with Arrow */
 .green-circle {
   position: absolute;
-  bottom: 4.5rem;
+  bottom: 4.5rem; /* Just above the bottom bar */
   left: 50%;
   transform: translateX(-50%);
   width: 2rem;
   height: 2rem;
   background-color: lightgreen;
-  border-radius: 50%;
+  border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #00222E;
 }
 
+/* Tab Content Area */
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  padding-bottom: 4rem; /* Prevents content from being hidden under the bottom bar */
+}
+
 /* Neighbors Page */
 .neighbors-page {
-  padding: 1.25rem;
+  padding: 20px;
 }
 
 .neighbors-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.625rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px;
 }
 
 .neighbor-card {
   display: flex;
   align-items: center;
   background-color: #00700D;
-  border-radius: 0.625rem;
-  padding: 0.75rem;
-  margin: 0.5rem 0;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 12px;
+  margin: 8px 0;
+}
+
+/* Larger Profile Image for Neighbors Page */
+.neighbor-card .profile-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px; /* Rounded rectangle for the image */
+  overflow: hidden;
+  margin-right: 16px; /* Spacing between image and text */
+}
+
+.neighbor-card .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .neighbor-info {
   flex-grow: 1;
 }
 
-.bio {
-  font-size: 0.875rem;
-}
-
-.profile-image {
-  width: 3.75rem;
-  height: 3.75rem;
-  border-radius: 0.625rem;
-  overflow: hidden;
-  margin-right: 1rem;
-  background-color: #E7FFF0;
-}
-
-.profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.username {
+.neighbor-info .username {
   font-weight: bold;
   color: #E7FFF0;
 }
 
+.neighbor-info .bio {
+  color: #E7FFF0;
+  font-size: 14px;
+}
+
 /* Posts Page */
 .posts-page {
-  padding: 1.25rem;
+  padding: 20px;
 }
 
 .posts-grid {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 15px;
 }
 
 .post-card {
   background-color: #00700D;
-  border-radius: 0.5rem;
-  padding: 1rem;
+  border-radius: 8px;
+  padding: 15px;
   cursor: pointer;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -200,32 +200,49 @@ body {
   justify-content: space-between;
 }
 
+.post-header .profile-image {
+  width: 25px;
+  height: 25px; /* Maintain smaller profile image for Posts page */
+  border-radius: 50%;
+  margin-right: 10px;
+  background-color: #E7FFF0;
+}
+
+.post-header .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.post-header .username {
+  font-weight: bold;
+  color: #E7FFF0;
+  cursor: pointer;
+}
+
 .post-text {
-  margin-top: 0.625rem;
-  font-size: 0.875rem;
+  color: #E7FFF0;
+  margin-top: 10px;
+  font-size: 14px;
   line-height: 1.5;
 }
 
 .post-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.625rem;
+  margin-top: 10px;
 }
 
 .post-actions button {
   background: none;
-  border: none;
   color: #E7FFF0;
+  border: none;
   cursor: pointer;
-  font-size: 1.125rem;
   padding: 0;
+  font-size: 18px;
   transition: color 0.2s ease;
 }
 
 .post-actions button:hover {
   color: #00602D;
-}
-
-.post-actions button i {
-  font-size: 1.25rem;
 }
