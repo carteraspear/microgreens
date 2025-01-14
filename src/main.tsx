@@ -10,13 +10,13 @@ const MainContent = ({ activeTab }: { activeTab: string }) => {
       {activeTab === "Favorites" && (
         <div className="favorites-page">
           <h2>Favorites</h2>
-          <p>Here are your saved posts and users.</p>
+          <p>Saved posts n' users bay bee</p>
         </div>
       )}
       {activeTab === "Messages" && (
         <div className="messages-page">
           <h2>Messages</h2>
-          <p>Your opened conversations will appear here.</p>
+          <p>Messages!!!!!!!! AAAAAA</p>
         </div>
       )}
     </>

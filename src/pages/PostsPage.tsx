@@ -17,7 +17,7 @@ const PostsPage = () => {
       username: `User ${index + 1}`,
       location: `Location ${index + 1}`,
       postText: `This is post number ${index + 1}. It's a short description of the post...`,
-      profileImage: "https://placekitten.com/200/200", // Placeholder profile image
+      profileImage: "https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Fwhats-your-opinion-on-twink-death-and-does-it-scare-anyone-v0-7alj7jhpmndb1.jpg%3Fwidth%3D1920%26format%3Dpjpg%26auto%3Dwebp%26s%3D2e6e6f0aff1c7a3b3cc1cc6471072d995b42f847", // Placeholder profile image
     }));
 
     setPosts((prev) => [...prev, ...newPosts]);
