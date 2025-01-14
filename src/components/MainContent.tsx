@@ -1,6 +1,6 @@
 import React from "react";
-import NeighborsPage from "./pages/NeighborsPage.tsx";
-import PostsPage from "./pages/PostsPage.tsx";
+import NeighborsPage from "../pages/NeighborsPage";
+import PostsPage from "../pages/PostsPage";
 
 const MainContent = ({ activeTab }: { activeTab: string }) => {
   return (
