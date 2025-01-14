@@ -1,1 +1,1 @@
-This is code for a social app i made lmao
+This is code for a social app i made lmao.
