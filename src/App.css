@@ -181,7 +181,6 @@ body {
   font-size: 14px;
 }
 
-
 .posts-page {
   padding: 20px;
 }
@@ -189,42 +188,58 @@ body {
 .posts-grid {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px; /* Increase spacing for cleaner layout */
 }
 
 .post-card {
   background-color: #00700D; /* Rounded card background */
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 8px; /* Slightly reduce roundness */
+  padding: 15px; /* Adjust padding for better proportion */
   cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth interaction */
+}
+
+.post-card:hover {
+  transform: translateY(-5px); /* Slight hover lift */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
 
 .post-header {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Space out header content */
 }
 
 .profile-image {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px; /* Slightly smaller profile image */
   background-color: #E7FFF0;
   border-radius: 50%;
   margin-right: 10px;
 }
 
-.post-header .username {
+.username {
   font-weight: bold;
   color: #E7FFF0;
   cursor: pointer;
 }
 
-.post-header .location {
+.location {
   color: #E7FFF0;
-  font-size: 14px;
+  font-size: 12px; /* Smaller, subtle text for location */
 }
 
 .post-text {
   color: #E7FFF0;
+  margin-top: 10px;
+  font-size: 14px; /* Refined text size */
+  line-height: 1.5; /* Enhance readability */
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between; /* Space out action icons */
   margin-top: 10px;
 }
 
@@ -233,9 +248,31 @@ body {
   color: #E7FFF0;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 0; /* Remove padding for favicon style */
+  font-size: 18px; /* Larger icon size */
+  transition: color 0.2s ease;
 }
 
 .post-actions button:hover {
   color: #00602D; /* Add hover effect */
+}
+
+.post-actions button i {
+  font-size: 20px; /* Ensure icons are prominent */
+}
+
+.post-actions button .favorite-icon {
+  content: url('/path-to-heart-icon.svg'); /* Replace with favicon path */
+}
+
+.post-actions button .comment-icon {
+  content: url('/path-to-comment-icon.svg'); /* Replace with favicon path */
+}
+
+.post-actions button .share-icon {
+  content: url('/path-to-share-icon.svg'); /* Replace with favicon path */
+}
+
+.post-actions button .message-icon {
+  content: url('/path-to-message-icon.svg'); /* Replace with favicon path */
 }
